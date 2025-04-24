@@ -34,7 +34,7 @@ import {
   telegram,
   twitter,
   yourlogo,
-} from "../assets";
+} from "../assets/index";
 
 export const navigation = [
   {
@@ -146,7 +146,13 @@ export const collabContent = [
   },
 ];
 
-export const collabApps = [
+export const collabApps: {
+  id: string;
+  title: string;
+  icon: string;
+  width: number;
+  height: number;
+}[] = [
   {
     id: "0",
     title: "Figma",
@@ -232,7 +238,7 @@ export const pricing = [
     id: "2",
     title: "Enterprise",
     description: "Custom AI chatbot, advanced analytics, dedicated account",
-    price: "19.99",
+    price: null,
     features: [
       "An AI chatbot that can understand your queries",
       "Personalized recommendations based on your preferences",
