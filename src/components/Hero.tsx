@@ -9,7 +9,7 @@ import { ScrollParallax } from "react-just-parallax";
 import { useRef } from "react";
 import { CompanyLogos, Generating, Notification } from "./";
 
-const Hero = () => {
+export const Hero = () => {
   const parallaxRef = useRef(null);
 
   return (
@@ -100,4 +100,4 @@ const Hero = () => {
   );
 };
 
-export default Hero;
+
