@@ -1,0 +1,35 @@
+{
+    "title": "Pricing",
+    "plans": {
+        "basic": {
+            "title": "Basic",
+            "description": "AI chatbot, personalized recommendations",
+            "price": "0",
+            "features": {
+                "1": "An AI chatbot that can understand your queries",
+                "2": "Personalized recommendations based on your preferences",
+                "3": "Ability to explore the app and its features without any cost"
+            }
+        },
+        "premium": {
+            "title": "Premium",
+            "description": "Advanced AI chatbot, priority support, analytics dashboard",
+            "price": "9.99",
+            "features": {
+                "1": "An advanced AI chatbot that can understand complex queries",
+                "2": "An analytics dashboard to track your conversations",
+                "3": "Priority support to solve issues quickly"
+            }
+        },
+        "enterprise": {
+            "title": "Enterprise",
+            "description": "Custom AI chatbot, advanced analytics, dedicated account",
+            "price": "Contact us",
+            "features": {
+                "1": "An AI chatbot that can understand your queries",
+                "2": "Personalized recommendations based on your preferences",
+                "3": "Ability to explore the app and its features without any cost"
+            }
+        }
+    }
+}

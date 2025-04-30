@@ -4,14 +4,17 @@ import { benefits } from "../constants";
 import Arrow from "../assets/svg/Arrow";
 import { GradientLight } from "./design/Benefits";
 import ClipPath from "../assets/svg/ClipPath";
+import { useTranslation } from "react-i18next";
 
 export const Benefits = () => {
+  const { t } = useTranslation();
+
   return (
     <Section id="features">
       <div className="container relative z-2">
         <Heading
           className="md:max-w-md lg:max-w-2xl text-center"
-          title="Chat Smarter, Not Harder with Brainwave"
+          title={t("benefits.title")}
         />
         <div className="flex flex-wrap gap-10 mb-10">
           {benefits.map((benefit) => (
@@ -28,8 +31,32 @@ export const Benefits = () => {
                 style={{ objectFit: "fill" }}
               />
               <div className="relative z-2 flex flex-col min-h-[22rem] p-[2.4rem] pointer-events-none">
-                <h5 className="h5 mb-5">{benefit.title}</h5>
-                <p className="body-2 mb-6 text-n-3">{benefit.text}</p>
+                <h5 className="h5 mb-5">
+                  {t(
+                    `benefits.cards.${
+                      benefit.id === "0" || benefit.id === "4"
+                        ? "askAnything"
+                        : benefit.id === "1" || benefit.id === "5"
+                        ? "improveEveryday"
+                        : benefit.id === "2"
+                        ? "connectEverywhere"
+                        : "fastResponding"
+                    }.title`
+                  )}
+                </h5>
+                <p className="body-2 mb-6 text-n-3">
+                  {t(
+                    `benefits.cards.${
+                      benefit.id === "0" || benefit.id === "4"
+                        ? "askAnything"
+                        : benefit.id === "1" || benefit.id === "5"
+                        ? "improveEveryday"
+                        : benefit.id === "2"
+                        ? "connectEverywhere"
+                        : "fastResponding"
+                    }.text`
+                  )}
+                </p>
                 <div className="flex items-center mt-auto">
                   <img
                     src={benefit.iconUrl}
@@ -38,7 +65,7 @@ export const Benefits = () => {
                     alt={benefit.title}
                   />
                   <p className="ml-auto font-code text-xs text-n-1 uppercase tracking-wider">
-                    Explore more
+                    {t("benefits.exploreMore")}
                   </p>
                   <Arrow />
                 </div>

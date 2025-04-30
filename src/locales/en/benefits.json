@@ -1,0 +1,22 @@
+{
+    "title": "Chat Smarter, Not Harder with Brainwave",
+    "exploreMore": "Explore more",
+    "cards": {
+        "askAnything": {
+            "title": "Ask anything",
+            "text": "Lets users quickly find answers to their questions without having to search through multiple sources."
+        },
+        "improveEveryday": {
+            "title": "Improve everyday",
+            "text": "The app uses natural language processing to understand user queries and provide accurate and relevant responses."
+        },
+        "connectEverywhere": {
+            "title": "Connect everywhere",
+            "text": "Connect with the AI chatbot from anywhere, on any device, making it more accessible and convenient."
+        },
+        "fastResponding": {
+            "title": "Fast responding",
+            "text": "Lets users quickly find answers to their questions without having to search through multiple sources."
+        }
+    }
+}

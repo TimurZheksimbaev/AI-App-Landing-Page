@@ -1,16 +1,22 @@
 import { useLocation } from "react-router-dom";
 import { disablePageScroll, enablePageScroll } from "scroll-lock";
-
 import { brainwave } from "../assets";
 import { navigation } from "../constants";
 import { Button } from "./Button";
 import MenuSvg from "../assets/svg/MenuSvg";
+import GlobeSvg from "../assets/svg/GlobeSvg";
 import { HamburgerMenu } from "./design/Header";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useTranslation } from "react-i18next";
+import i18next from "i18next";
 
 export const Header = () => {
   const pathname = useLocation();
   const [openNavigation, setOpenNavigation] = useState(false);
+  const { t, i18n } = useTranslation();
+  const [language, setLanguage] = useState(
+    i18n.language === "ru" ? "RU" : "EN"
+  );
 
   const toggleNavigation = () => {
     if (openNavigation) {
@@ -27,6 +33,12 @@ export const Header = () => {
 
     enablePageScroll();
     setOpenNavigation(false);
+  };
+
+  const toggleLanguage = () => {
+    const newLang = language === "EN" ? "RU" : "EN";
+    setLanguage(newLang);
+    i18n.changeLanguage(newLang === "EN" ? "en" : "ru");
   };
 
   return (
@@ -59,7 +71,7 @@ export const Header = () => {
                     : "lg:text-n-1/50"
                 } lg:leading-5 lg:hover:text-n-1 xl:px-12`}
               >
-                {item.title}
+                {t(`header.${item.title.toLowerCase().replace(/\s+/g, "")}`)}
               </a>
             ))}
           </div>
@@ -67,26 +79,44 @@ export const Header = () => {
           <HamburgerMenu />
         </nav>
 
+        <button
+          onClick={toggleLanguage}
+          className="button hidden mr-4 text-n-1/50 transition-colors hover:text-n-1 lg:flex items-center font-code text-xs font-bold uppercase group relative overflow-hidden"
+        >
+          <GlobeSvg />
+          <span className="transition-transform duration-300">{language}</span>
+          <span className="absolute bottom-0 left-0 w-full h-px bg-color-1 scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></span>
+        </button>
+
         <a
           href="#signup"
           className="button hidden mr-8 text-n-1/50 transition-colors hover:text-n-1 lg:block"
         >
-          New account
+          {t("header.newAccount")}
         </a>
 
         <div className="hidden lg:block">
           <Button className="flex" href="#login">
-            Sign in
+            {t("header.signIn")}
           </Button>
         </div>
 
-        <Button
-          className="ml-auto lg:hidden"
-          px="px-3"
-          onClick={toggleNavigation}
-        >
-          <MenuSvg openNavigation={openNavigation} />
-        </Button>
+        <div className="flex items-center ml-auto lg:hidden">
+          <button
+            onClick={toggleLanguage}
+            className="button mr-4 text-n-1/50 transition-colors hover:text-n-1 font-code text-xs font-bold uppercase flex items-center group relative overflow-hidden"
+          >
+            <GlobeSvg />
+            <span className="transition-transform duration-300">
+              {language}
+            </span>
+            <span className="absolute bottom-0 left-0 w-full h-px bg-color-1 scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></span>
+          </button>
+
+          <Button className="" px="px-3" onClick={toggleNavigation}>
+            <MenuSvg openNavigation={openNavigation} />
+          </Button>
+        </div>
       </div>
     </div>
   );
