@@ -57,7 +57,7 @@ export const PricingList = () => {
           </Button>
 
           <ul>
-            {item.features.map((feature, index) => (
+            {item.features.map((index) => (
               <li
                 key={index}
                 className="flex items-start py-5 border-t border-n-6"

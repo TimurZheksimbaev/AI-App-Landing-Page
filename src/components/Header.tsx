@@ -6,9 +6,8 @@ import { Button } from "./Button";
 import MenuSvg from "../assets/svg/MenuSvg";
 import GlobeSvg from "../assets/svg/GlobeSvg";
 import { HamburgerMenu } from "./design/Header";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useTranslation } from "react-i18next";
-import i18next from "i18next";
 
 export const Header = () => {
   const pathname = useLocation();
